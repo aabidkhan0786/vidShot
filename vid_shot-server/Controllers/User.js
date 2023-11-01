@@ -1,4 +1,5 @@
-import Users from "../Models/User";
+import Users from "../Models/User.js";
+import Videos from "../Models/Video.js";
 
 // update user
 export const updateUser = async (req, res) => {
@@ -68,3 +69,31 @@ export const unSubsUser = async (req, res) => {
     res.status(500).json({ msg: "You are not authenticated!" });
   }
 };
+
+// like videos
+export const likeVideos = async (req,res)=>{
+    const videoId = req.params.videoId
+    try {
+        await Videos.findByIdAndUpdate(videoId,{
+            $addToSet:{likes:req.userId},
+            $pull:{dislikes:req.userId}
+        })
+        res.status(202).json("Video has been liked!")
+    } catch (error) {
+        res.status(500).json({ msg:error });
+    }
+}
+
+// dislike videos
+export const disLikeVideos = async (req,res)=>{
+    const videoId = req.params.videoId
+    try {
+        await Videos.findByIdAndUpdate(videoId,{
+            $addToSet:{dislikes:req.userId},
+            $pull:{likes:req.userId}
+        })
+        res.status(202).json("Video has been disliked!")
+    } catch (error) {
+        res.status(500).json({ msg:error });
+    }
+}

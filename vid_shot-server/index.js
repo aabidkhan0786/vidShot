@@ -2,6 +2,9 @@ import { configDotenv } from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import authRoutes from "./Routes/Auth.js"
+import videoRoutes from "./Routes/Video.js"
+import commentRoutes from "./Routes/Comment.js"
+import userRoutes from "./Routes/User.js"
 
 
 const app = express()
@@ -14,6 +17,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/aak/auth",authRoutes)
+app.use("/aak/user",userRoutes)
+app.use("/aak/video",videoRoutes)
+app.use("/aak/comment",commentRoutes)
 
 const port = process.env.PORT || 5000;
 
