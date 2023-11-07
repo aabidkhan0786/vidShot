@@ -1,0 +1,180 @@
+/* LAYOUT */
+.layout_cover{
+    width:100vw;
+    height:100vh;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+
+/* common */
+.basic_btn{
+    background-color: #F1C376;
+    color:black;
+    height:40px;
+    border-radius: 60px 15px;
+    outline: none;
+    border: 2px solid #F1C376;
+}
+
+.basic_btn:hover{
+    background-color: transparent;
+    border: 2px solid #F1C376;
+    color:#F1C376;  
+}
+
+/* SIDE BAR */
+.side_menu{
+    width:240px;
+    border-right:1px solid gray;
+    height:100vh;
+}
+
+.profile{
+    width:210px;
+    border: 2px solid whitesmoke;
+    height:240px;
+    background-color: #F2F7FF;
+    border-radius: 50px 15px;
+}
+
+.pp_img{
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+}
+
+
+/* SIGN UP */
+
+.signup{
+    width:100vw;
+    height:100vh;
+}
+.signup_cover{
+    width: 70vw;
+    height:80vh;
+    background-color: #F2F7FF;
+    border-radius: 60px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.register_pic{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_register{
+    width:35vw;
+    /* height:100%; */
+}
+
+.register_form{
+    height:100%;
+    width: 35vw;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 10px;
+}
+
+.input_design{
+    outline:none;
+    border:none;
+    margin:10px;
+    border-bottom: 3px solid #F1C376 ;
+    background-color: transparent;
+}
+
+/* SIGN IN */
+.login_cover{
+    width: 70vw;
+    height:80vh;
+    background-color: #F2F7FF;
+    border-radius: 60px 15px;
+    display: flex;
+    flex-direction: column;
+}
+.login_pic{
+    /* width:70vw;
+    height:20vh; */
+}
+
+.img_login{
+    width: 70vw;
+    height:30vh;
+}
+
+.login_form_cover{
+    width:70vw;
+    display: flex;
+    justify-content: center;
+
+}
+
+.login_form{
+    width:35vw;
+
+}
+
+/* SEARCH BAR */
+.main_content{
+    height:100%;
+    width: 100%;
+}
+
+.input_search{
+    width:60%;
+    margin-top:15px;
+    background-color: #F2F7FF;
+    height:40px;
+    border-radius: 20px;
+    border:2px solid #F1C376;
+    padding:10px;
+}
+
+input[type=search]:focus {
+    outline:2px solid #F1C376;
+    
+}
+
+/* ADD VIDEOS */
+
+.add_video{
+    /* width:100%; */
+    margin:10px;
+    display: flex;
+}
+
+.left_div{
+    width:50%;
+    padding:20px;
+    display: flex;
+    justify-content: center;
+}
+.right_div{
+    width:50%;
+    padding:20px;
+    display: flex;
+
+}
+
+.upload_button{
+    width:100%;
+    padding: 20px;
+    border: 1px solid #F1C376;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.upload_button:hover{
+    background-color: #F2F7FF;
+}
