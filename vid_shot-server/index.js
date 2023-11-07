@@ -5,11 +5,13 @@ import authRoutes from "./Routes/Auth.js"
 import videoRoutes from "./Routes/Video.js"
 import commentRoutes from "./Routes/Comment.js"
 import userRoutes from "./Routes/User.js"
+import cors from "cors";
 
 
 const app = express()
 configDotenv()
 
+app.use(cors())
 app.use(express.json())
 
 app.get("/",(req,res)=>{
