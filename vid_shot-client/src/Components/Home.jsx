@@ -13,8 +13,11 @@ const Home = ({type}) => {
   const dispatch = useDispatch()
 
   useEffect(()=>{
-    const result = dispatch(displayVideos(type))
-    console.log(result);
+    const showVideo= ()=>{
+      const result = dispatch(displayVideos(type))
+      result.then(res=> console.log(res,type))
+    }
+    showVideo()
   },[type])
 
   return (

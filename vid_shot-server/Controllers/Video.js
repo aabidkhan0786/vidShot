@@ -68,8 +68,8 @@ export const viewVideo = async (req,res)=>{
 // random videos
 export const randomVideo = async (req,res)=>{
     try {
-        const videos = await Videos.aggregate([{$sample:30}])
-        req.status(200).json(videos)
+        const videos = await Videos.aggregate([{$sample:{size:30}}])
+        res.status(200).json(videos)
     } catch (error) {
       console.log({msg:error});
         res.status(500).json({ msg: error });
@@ -79,8 +79,8 @@ export const randomVideo = async (req,res)=>{
 // trending videos
 export const trendVideo = async (req,res)=>{
     try {
-        const videos = await Videos.find().sort({$views:-1})
-        req.status(200).json(videos)
+        const videos = await Videos.find().sort({views:-1})
+        res.status(200).json(videos)
     } catch (error) {
       console.log({msg:error});
         res.status(500).json({ msg: error });
@@ -90,15 +90,20 @@ export const trendVideo = async (req,res)=>{
 // user subscribed videos
 export const subsVideos = async (req,res)=>{
     try {
-        const user = await Users.findById({_id:res.userId})
+        const user = await Users.findById(req.userId)
+        console.log(user);
         const subscribedChannels = user.subscribedUser;
+        if(subscribedChannels.length == 0){
+          res.status(200).json("you havnt")
+        }else{
+          const list = await Promise.all(
+              subscribedChannels.map(channelId=>{
+                  return Videos.find({userId:channelId})
+              })
+          )
+          res.status(200).json(list.flat().sort(a,b=> b.createdAt - a.createdAt))
 
-        const list = await Promise.all(
-            subscribedChannels.map(channelId=>{
-                return Videos.find({userId:channelId})
-            })
-        )
-        res.status(200).json(list.flat().sort(a,b=> b.createdAt - a.createdAt))
+        }
 
     } catch (error) {
       console.log({msg:error});

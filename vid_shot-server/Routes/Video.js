@@ -10,7 +10,7 @@ router.delete("/:id",Auth,deleteVideo)
 router.get("/view",Auth,viewVideo)
 router.get("/random",randomVideo)
 router.get("/trend",trendVideo)
-router.get("/subsvideo",subsVideos)
+router.get("/subsvideo",Auth,subsVideos)
 router.get("/videotags",Auth,getByTags)
 router.get("/search",Auth,getBySearch)
 
