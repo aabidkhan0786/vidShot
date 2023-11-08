@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 
-const Auth = async (req,res)=>{
+const Auth = async (req,res,next)=>{
    try {
     const token = await req.headers.authorization.split(" ")[1]
     console.log(token);
@@ -10,9 +10,11 @@ const Auth = async (req,res)=>{
         req.userId = verifiedToken?.id
         next()
     }else{
+        console.log("You are unauthenticated!");
         res.status(403).json({msg:"You are unauthenticated!"})
     }
    } catch (error) {
+    console.log({msg:error});
     res.status(403).json({msg:error})
    }
 }

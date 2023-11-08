@@ -8,6 +8,7 @@ export const addVideo = async (req, res) => {
     const savedVideo = await video.save();
     res.status(201).json(savedVideo);
   } catch (error) {
+    console.log({msg:error});
     res.status(500).json({ msg: error });
   }
 };
@@ -67,9 +68,10 @@ export const viewVideo = async (req,res)=>{
 // random videos
 export const randomVideo = async (req,res)=>{
     try {
-        const videos = await Videos.find().aggregate([{$sample:30}])
+        const videos = await Videos.aggregate([{$sample:30}])
         req.status(200).json(videos)
     } catch (error) {
+      console.log({msg:error});
         res.status(500).json({ msg: error });
     }
 }
@@ -80,6 +82,7 @@ export const trendVideo = async (req,res)=>{
         const videos = await Videos.find().sort({$views:-1})
         req.status(200).json(videos)
     } catch (error) {
+      console.log({msg:error});
         res.status(500).json({ msg: error });
     }
 }
@@ -98,6 +101,7 @@ export const subsVideos = async (req,res)=>{
         res.status(200).json(list.flat().sort(a,b=> b.createdAt - a.createdAt))
 
     } catch (error) {
+      console.log({msg:error});
         res.status(500).json({ msg: error });
     }
 }

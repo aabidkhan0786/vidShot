@@ -10,5 +10,10 @@ API.interceptors.request.use(req=>{
     return req;
 })
 
+// Users
 export const signUp = (credentials)=> API.post(`/auth/signup`,credentials)
 export const signIn = (credentials)=> API.post(`/auth/signin`,credentials)
+
+// Videos
+export const displayVideos = (type)=> API.get(`/video/${type}`)
+export const addVideos = (videoDetails)=> API.post("/video",videoDetails)

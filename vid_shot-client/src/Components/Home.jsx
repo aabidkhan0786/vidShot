@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideMenu from "./SideMenu";
 import Search from "./Search";
 import AddVideos from "./Pages/AddVideos";
+import DisplayVideos from "./Pages/DisplayVideos";
+import { useDispatch } from "react-redux";
+import { displayVideos } from "../Redux/Actions/Video";
 
 
 
-const Home = () => {
-    const [open,setOpen]= useState(false)
+const Home = ({type}) => {
+  const [open, setOpen] = useState(false)
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    const result = dispatch(displayVideos(type))
+    console.log(result);
+  },[type])
+
   return (
     <>
       <div className="layout_cover">
@@ -14,8 +24,12 @@ const Home = () => {
           <SideMenu setOpen={setOpen} />
         </div>
         <div className="main_content d-flex flex-column ">
-         
-        {open ? <AddVideos/> :  <Search/> }
+          {open ? <AddVideos /> :
+            <>       
+            <Search />
+            <DisplayVideos/>
+            </>
+          }
         </div>
       </div>
     </>

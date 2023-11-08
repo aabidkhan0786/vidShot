@@ -22,9 +22,8 @@ a{
 }
 
 .basic_btn:hover{
-    background-color: transparent;
+    background-color: #F2F7FF;
     border: 2px solid #F1C376;
-    color:#F1C376;  
 }
 
 /* SIDE BAR */

@@ -41,17 +41,16 @@ const SideMenu = ({setOpen}) => {
           <i className="fa-solid fa-file-video lead px-2 py-3"></i>
             Add Video
           </Link>
-          <Link>
+          <Link to="/trend" >
             <i className="fa-solid fa-arrow-trend-up lead px-2"></i>
             Trending
           </Link>
-          <Link>
+          <Link to="/subscribed">
             <i className="fa-brands fa-squarespace lead px-2 py-3"></i>Subscription
           </Link>
-          <button className="basic_btn my-3" >
+          <button className="basic_btn my-3" onClick={() => dispatch(logout(navigate))}>
             <i
               className="fa-solid fa-right-from-bracket lead "
-              onClick={() => dispatch(logout(navigate))}
             ></i>
             Logout
           </button>

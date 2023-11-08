@@ -16,7 +16,8 @@ const App = () => {
             <Route path="/" element={<PrivateRoutes/>}>
               <Route index element={<Home type="random" />} />
               <Route path="trend" element={<Home type="trend" />} />
-              <Route path="subscribed" element={<Home type="subs" />} />
+              <Route path="subscribed" element={<Home type="subsVideo" />} />
+              <Route element={<AddVideos />} />
             </Route>
           </Routes>
       </BrowserRouter>
