@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
-import SideMenu from "./SideMenu";
-import Search from "./Search";
+import SideMenu from "./Menu/SideMenu";
+import Search from "./Menu/Search";
 import AddVideos from "./Pages/AddVideos";
 import DisplayVideos from "./Pages/DisplayVideos";
 import { useDispatch } from "react-redux";
 import { displayVideos } from "../Redux/Actions/Video";
 
 
-
 const Home = ({type}) => {
   const [open, setOpen] = useState(false)
+  const [videos,setVideos] = useState([])
   const dispatch = useDispatch()
 
   useEffect(()=>{
     const showVideo= ()=>{
       const result = dispatch(displayVideos(type))
-      result.then(res=> console.log(res,type))
+      result.then(res=> 
+        setVideos(res)
+        )
     }
     showVideo()
   },[type])
@@ -30,7 +32,7 @@ const Home = ({type}) => {
           {open ? <AddVideos /> :
             <>       
             <Search />
-            <DisplayVideos/>
+            <DisplayVideos videos={videos} />
             </>
           }
         </div>

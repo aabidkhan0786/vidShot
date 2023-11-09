@@ -177,3 +177,26 @@ input[type=search]:focus {
 .upload_button:hover{
     background-color: #F2F7FF;
 }
+
+
+/* VIDEO PLAYER DESIGN */
+
+.video_design{
+    width:300px;
+    height: 300px;
+    border-radius: 60px 15px;
+    background-color: #F2F7FF;
+    border: 1px solid #F1C376;
+}
+
+.video_container{
+    display: flex;
+    justify-content: space-between;
+    margin:20px
+}
+
+.img_thumbnail{
+    border-radius: 60px 15px;
+    width:100%;
+    height: 220px;
+}

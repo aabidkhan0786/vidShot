@@ -1,10 +1,10 @@
 import React from "react";
-import "./style.css";
-import dummypic from "../Assets/dummypp.jpg";
-import logo from "../Assets/logo.png";
+import "../style.css";
+import dummypic from "../../Assets/dummypp.jpg";
+import logo from "../../Assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../Redux/Actions/User";
+import { logout } from "../../Redux/Actions/User";
 
 const SideMenu = ({setOpen}) => {
   const dispatch = useDispatch();
