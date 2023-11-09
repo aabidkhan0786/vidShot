@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const DisplayVideos = ({ videos }) => {
   console.log(videos);
+  useEffect(()=>{
+
+  },[])
   return (
     <>
     <div className='video_container' >
@@ -13,7 +16,6 @@ const DisplayVideos = ({ videos }) => {
         </>
       ))
       }
-
     </div>
     </>
   )

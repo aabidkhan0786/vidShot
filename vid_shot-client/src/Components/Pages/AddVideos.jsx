@@ -163,7 +163,7 @@ const AddVideos = () => {
         </div>
       </div>
       <center>
-        <button className="basic_btn w-50" disabled={(vidPer&&imgPer==100? "false":"true")} onClick={addVid}>Upload</button>
+        <button className="basic_btn w-50" onClick={addVid}>Upload</button>
       </center>
     </>
   );
