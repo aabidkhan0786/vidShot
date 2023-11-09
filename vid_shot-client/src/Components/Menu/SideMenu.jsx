@@ -32,12 +32,16 @@ const SideMenu = ({setOpen}) => {
                 </p>
                 |<p className="px-1">Videos: {auth?.user?.video || "0"}</p>
               </div>
-              <button className="basic_btn">Profile</button>
+              <Link to={`/profile/${auth?.user?._id}`} >
+                <button className="basic_btn width_btn">
+                Profile
+                </button>
+                </Link>
             </div>
           </div>
         </div>
         <div className="my-3 mx-2 d-flex flex-column">
-          <Link onClick={()=>setOpen(true)}>
+          <Link to="/addvideo">
           <i className="fa-solid fa-file-video lead px-2 py-3"></i>
             Add Video
           </Link>

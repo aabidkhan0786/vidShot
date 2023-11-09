@@ -1,6 +1,17 @@
 import Users from "../Models/User.js";
 import Videos from "../Models/Video.js";
 
+
+export const getUser = async (req,res)=>{
+  try {
+    const user = await Users.findById(req.params.id)
+    res.status(200).json(user)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "error" });
+  }
+}
+
 // update user
 export const updateUser = async (req, res) => {
   if (req.userId === req.params.id) {

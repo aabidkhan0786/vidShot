@@ -6,37 +6,23 @@ import DisplayVideos from "./Pages/DisplayVideos";
 import { useDispatch } from "react-redux";
 import { displayVideos } from "../Redux/Actions/Video";
 
+const Home = ({ type }) => {
+  // const [open, setOpen] = useState(false)
+  const [videos, setVideos] = useState([]);
+  const dispatch = useDispatch();
 
-const Home = ({type}) => {
-  const [open, setOpen] = useState(false)
-  const [videos,setVideos] = useState([])
-  const dispatch = useDispatch()
-
-  useEffect(()=>{
-    const showVideo= ()=>{
-      const result = dispatch(displayVideos(type))
-      result.then(res=> 
-        setVideos(res)
-        )
-    }
-    showVideo()
-  },[type])
+  useEffect(() => {
+    const showVideo = () => {
+      const result = dispatch(displayVideos(type));
+      result.then((res) => setVideos(res));
+    };
+    showVideo();
+  }, [type]);
 
   return (
     <>
-      <div className="layout_cover">
-        <div className="side_bar">
-          <SideMenu setOpen={setOpen} />
-        </div>
-        <div className="main_content d-flex flex-column ">
-          {open ? <AddVideos /> :
-            <>       
-            <Search />
-            <DisplayVideos videos={videos} />
-            </>
-          }
-        </div>
-      </div>
+      <Search />
+      <DisplayVideos videos={videos} />
     </>
   );
 };

@@ -25,7 +25,6 @@ export const signIn = (credentials, navigate) => async (dispatch) => {
 };
 export const logout = (navigate) => async (dispatch) => {
   try {
-    console.log("clicked");
     dispatch({ type: "LOGOUT"});
     navigate("/signin")
   } catch (error) {
@@ -33,3 +32,13 @@ export const logout = (navigate) => async (dispatch) => {
     alert(error.response.data.msg);
   }
 };
+
+export const getUser =(userId)=> async (dispatch)=> {
+  try {
+    const {data} = await Api.getuser(userId)
+    console.log(data);
+    return data
+  } catch (error) {
+    
+  }
+}

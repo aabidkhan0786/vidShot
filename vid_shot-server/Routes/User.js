@@ -1,10 +1,10 @@
 import Auth from "../Middlewares/Auth.js";
 import express from "express";
-import { updateUser, subsUser, unSubsUser, likeVideos, disLikeVideos } from "../Controllers/User.js";
+import { updateUser, subsUser, unSubsUser, likeVideos, disLikeVideos, getUser } from "../Controllers/User.js";
 const router = express.Router()
 
 // get user
-
+router.get("/find/:id",getUser)
 
 //update user
 router.put("/:id",Auth,updateUser)

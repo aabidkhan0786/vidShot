@@ -65,7 +65,7 @@ const AddVideos = () => {
     setTags(e.target.value.split(","))
   }
 
-
+console.log("called");
 
   useEffect(() => {
     video && uploadFile(video,"videoUrl");
