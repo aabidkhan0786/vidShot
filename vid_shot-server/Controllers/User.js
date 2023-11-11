@@ -2,6 +2,7 @@ import Users from "../Models/User.js";
 import Videos from "../Models/Video.js";
 
 
+// get a user
 export const getUser = async (req,res)=>{
   try {
     const user = await Users.findById(req.params.id)

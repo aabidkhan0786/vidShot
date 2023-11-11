@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getUser } from "../../Redux/Actions/User";
 import { useDispatch } from "react-redux";
 import { format } from "timeago.js";
+import { Link } from "react-router-dom";
 
 const VideoCard = ({ video }) => {
   const [channel, setChannel] = useState("");
@@ -17,6 +18,7 @@ const VideoCard = ({ video }) => {
 
   return (
     <>
+    <Link to={`/video/${video._id}`} state={{video}} >
       <div className="video_design shadow-lg" key={video._id}>
         <img
           src={video.imgUrl}
@@ -33,6 +35,7 @@ const VideoCard = ({ video }) => {
           </div>
         </div>
       </div>
+    </Link>
     </>
   );
 };
