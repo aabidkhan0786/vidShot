@@ -8,13 +8,15 @@ import AddVideos from "./Components/Pages/AddVideos";
 import SideMenu from "./Components/Menu/SideMenu";
 import ProfilePage from "./Components/Pages/ProfilePage";
 import VideoPlayer from "./Components/Pages/VideoPlayer";
+import Settings from "./Components/Pages/Settings";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <div className="layout_cover">
-          <div className="side_bar">
+
+          <div className="side_bar sticky-top" >
             <SideMenu />
           </div>
           <div className="main_content">
@@ -28,6 +30,7 @@ const App = () => {
               </Route>
               <Route path="/addvideo" element={<AddVideos />} />
               <Route path="/profile/:id" element={<ProfilePage />} />
+              <Route path="/settings/:id" element={<Settings />} />
               <Route path="/video/:id" element={<VideoPlayer />} />
             </Routes>
           </div>

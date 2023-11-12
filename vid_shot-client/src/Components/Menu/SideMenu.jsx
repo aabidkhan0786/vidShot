@@ -34,7 +34,7 @@ const SideMenu = ({setOpen}) => {
               </div>
               <Link to={`/profile/${auth?.user?._id}`} >
                 <button className="basic_btn width_btn">
-                Profile
+                <i className="fa-solid fa-user px-1"></i>Profile
                 </button>
                 </Link>
             </div>
@@ -52,9 +52,12 @@ const SideMenu = ({setOpen}) => {
           <Link to="/subscribed">
             <i className="fa-brands fa-squarespace lead px-2 py-3"></i>Subscription
           </Link>
+          <Link to={`/settings/${auth.user._id}`}>
+          <i className="fa-solid fa-gears lead px-2 "></i>Settings
+          </Link>
           <button className="basic_btn my-3" onClick={() => dispatch(logout(navigate))}>
             <i
-              className="fa-solid fa-right-from-bracket lead "
+              className="fa-solid fa-right-from-bracket lead px-1"
             ></i>
             Logout
           </button>

@@ -1,22 +1,29 @@
 /* LAYOUT */
-.layout_cover{
-    width:100vw;
-    height:100vh;
+.layout_cover {
+    width: 100vw;
+    height: 100vh;
     display: flex;
+
 }
 
-.main_content{
-    width:100%;
+.main_content {
+    width: 1032px;
+    height: 100%;
+    position: absolute;
+    scroll-behavior: smooth;
+    left: 240px;
+    /* background-color: red; */
+    overflow-x: hidden;
 }
 
 
 /* common */
-a{
+a {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
-.center_page{
+.center_page {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,75 +31,114 @@ a{
     height: 100%;
 }
 
-.basic_btn{
+.basic_btn {
     background-color: #F1C376;
-    color:black;
-    height:40px;
+    color: black;
+    height: 40px;
     border-radius: 60px 15px;
     outline: none;
     border: 2px solid #F1C376;
 }
 
-.basic_btn:hover{
+.basic_btn_cancel {
+    background-color: #F2F7FF;
+    color: black;
+    height: 40px;
+    border-radius: 60px 15px;
+    outline: none;
+    border: 2px solid #F1C376;
+}
+
+.basic_btn_cancel:hover {
+    background-color: #F1C376;
+    border: 2px solid #F2F7FF;
+}
+
+.basic_btn:hover {
     background-color: #F2F7FF;
     border: 2px solid #F1C376;
 }
 
+/* custom scrollbar */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #F1C376;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #d6dee1;
+}
+
 /* SIDE BAR */
-.side_menu{
-    width:240px;
-    border-right:1px solid gray;
-    height:100vh;
+.side_menu {
+    width: 240px;
+    border-right: 1px solid gray;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
 }
 
-.width_btn{
-    width:100%;
+.width_btn {
+    width: 100%;
 }
 
-.profile{
-    width:210px;
+.profile {
+    width: 210px;
     border: 2px solid whitesmoke;
-    height:240px;
+    height: 240px;
     background-color: #F2F7FF;
     border-radius: 50px 15px;
 }
 
-.pp_img{
-    width:120px;
-    height:120px;
+.pp_img {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
 }
 
 
 /* SIGN UP */
 
-.signup{
-    width:100vw;
-    height:100vh;
+.signup {
+    width: 100vw;
+    height: 100vh;
 }
-.signup_cover{
+
+.signup_cover {
     width: 70vw;
-    height:80vh;
+    height: 80vh;
     background-color: #F2F7FF;
     border-radius: 60px 15px;
     display: flex;
     flex-direction: row;
 }
 
-.register_pic{
+.register_pic {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
 }
 
-.img_register{
-    width:35vw;
+.img_register {
+    width: 35vw;
     /* height:100%; */
 }
 
-.register_form{
-    height:100%;
+.register_form {
+    height: 100%;
     width: 35vw;
     display: flex;
     /* justify-content: center; */
@@ -100,18 +146,18 @@ a{
     padding: 10px;
 }
 
-.input_design{
-    outline:none;
-    border:none;
-    margin:10px;
-    border-bottom: 3px solid #F1C376 ;
+.input_design {
+    outline: none;
+    border: none;
+    margin: 10px;
+    border-bottom: 3px solid #F1C376;
     background-color: transparent;
 }
 
 /* SIGN IN */
-.login_cover{
+.login_cover {
     width: 70vw;
-    height:80vh;
+    height: 80vh;
     background-color: #F2F7FF;
     border-radius: 60px 15px;
     display: flex;
@@ -119,66 +165,62 @@ a{
 }
 
 
-.img_login{
+.img_login {
     width: 70vw;
-    height:30vh;
+    height: 30vh;
 }
 
-.login_form_cover{
-    width:70vw;
+.login_form_cover {
+    width: 70vw;
     display: flex;
     justify-content: center;
 
 }
 
-.login_form{
-    width:35vw;
+.login_form {
+    width: 35vw;
 
 }
 
 /* SEARCH BAR */
-.main_content{
-    height:100%;
-    width: 100%;
-}
-
-.input_search{
-    width:60%;
-    margin-top:15px;
+.input_search {
+    width: 60%;
+    margin-top: 15px;
     background-color: #F2F7FF;
-    height:40px;
+    height: 40px;
     border-radius: 20px;
-    border:2px solid #F1C376;
-    padding:10px;
+    border: 2px solid #F1C376;
+    padding: 10px;
 }
 
 input[type=search]:focus {
-    outline:2px solid #F1C376;
-    
+    outline: 2px solid #F1C376;
+
 }
 
 /* ADD VIDEOS */
-.add_video{
+.add_video {
     /* width:100%; */
-    margin:10px;
+    margin: 10px;
     display: flex;
 }
 
-.left_div{
-    width:50%;
-    padding:20px;
+.left_div {
+    width: 50%;
+    padding: 20px;
     display: flex;
     justify-content: center;
 }
-.right_div{
-    width:50%;
-    padding:20px;
+
+.right_div {
+    width: 50%;
+    padding: 20px;
     display: flex;
 
 }
 
-.upload_button{
-    width:100%;
+.upload_button {
+    width: 100%;
     padding: 20px;
     border: 1px solid #F1C376;
     cursor: pointer;
@@ -186,49 +228,80 @@ input[type=search]:focus {
     margin-top: 20px;
 }
 
-.upload_button:hover{
+.upload_button:hover {
     background-color: #F2F7FF;
 }
 
 
 /* VIDEO PLAYER DESIGN */
-.video_design{
-    width:300px;
+.video_design {
+    width: 300px;
     height: 300px;
     border-radius: 60px 15px;
     background-color: #F2F7FF;
     border: 1px solid #F1C376;
 }
 
-.video_container{
+.video_container {
     display: flex;
     justify-content: space-between;
-    margin:20px
+    margin: 20px
 }
 
-.img_thumbnail{
+.img_thumbnail {
     border-radius: 60px 15px;
-    width:100%;
+    width: 100%;
     height: 220px;
+}
+
+.video_div {
+    width: 1032px;
+
+}
+
+.video_cover {
+    scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
 /* PROFILE */
 
-.profile_cover{
+.profile_cover {
     width: 70vw;
-    height:80vh;
+    height: 80vh;
     background-color: #F2F7FF;
     border-radius: 60px 15px;
 
 }
 
-.dp_img{
-    width:300px;
-    height:300px;
+.dp_img {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
 }
 
-.border_end{
+.border_end {
     border-right: 2px solid #F1C376;
+}
+
+.edit_profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.input_profile {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #F1C376;
+    background-color: transparent;
+    /* padding-left: 10px; */
+}
+
+.text_profile {
+    border: 2px solid #F1C376;
+    border-radius: 10px;
 }

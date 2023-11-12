@@ -14,6 +14,7 @@ API.interceptors.request.use(req=>{
 export const signUp = (credentials)=> API.post(`/auth/signup`,credentials)
 export const signIn = (credentials)=> API.post(`/auth/signin`,credentials)
 export const getuser = (userId)=> API.get(`user/find/${userId}`)
+export const editUser = (userId,editDetails)=> API.put(`user/${userId}`,editDetails)
 
 // Videos
 export const displayVideos = (type)=> API.get(`/video/${type}`)

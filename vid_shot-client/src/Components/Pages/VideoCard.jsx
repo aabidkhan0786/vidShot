@@ -18,7 +18,7 @@ const VideoCard = ({ video }) => {
 
   return (
     <>
-    <Link to={`/video/${video._id}`} state={{video}} >
+    <Link to={`/video/${video._id}`} state={{video,channel}} >
       <div className="video_design shadow-lg" key={video._id}>
         <img
           src={video.imgUrl}

@@ -42,3 +42,13 @@ export const getUser =(userId)=> async (dispatch)=> {
     
   }
 }
+
+export const editUser = (userId,userDetails)=> async (dispatch)=> {
+  try {
+    const {data} = await Api.editUser(userId,userDetails)
+    console.log(data);
+    return data
+  } catch (error) {
+    
+  }
+}
