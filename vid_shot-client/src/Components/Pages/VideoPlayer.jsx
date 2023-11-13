@@ -12,7 +12,7 @@ const VideoPlayer = () => {
       <h4 className='p-2'>{data.video.title}</h4>
       <h5 className='p-2'>{data.video.desc}</h5>
       <div>
-        <img src={data.channel.img} alt={data.channel.username} />
+        {/* <img src={data.channel.img} alt={data.channel.username} /> */}
       </div>
     </div>
     </>

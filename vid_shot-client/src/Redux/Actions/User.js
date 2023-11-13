@@ -39,7 +39,8 @@ export const getUser =(userId)=> async (dispatch)=> {
     console.log(data);
     return data
   } catch (error) {
-    
+    console.log(error.response.data.msg);
+    alert(error.response.data.msg);
   }
 }
 
@@ -47,8 +48,10 @@ export const editUser = (userId,userDetails)=> async (dispatch)=> {
   try {
     const {data} = await Api.editUser(userId,userDetails)
     console.log(data);
+    dispatch({type:"UPDATE_USER",data})
     return data
   } catch (error) {
-    
+    console.log(error.response.data.msg);
+    alert(error.response.data.msg);
   }
 }

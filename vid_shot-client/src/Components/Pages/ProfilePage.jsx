@@ -66,7 +66,7 @@ const ProfilePage = () => {
             <>
               <div className="d-flex justify-content-center flex-column w-100 my-2" >
                 <center>
-                  <img className="edit_profile" src={dummypic} alt={userInfo.username} />
+                  <img className="edit_profile" src={userInfo.img} alt={userInfo.username} />
                   <label style={{ "cursor": "pointer" }} className="text-center w-100" for="profilePic" >Change Profile Picture</label>
                   <input type="file" accept="image/*" id="profilePic" hidden onChange={(e) => convertBase64(e)} />
                 </center>
@@ -106,7 +106,7 @@ const ProfilePage = () => {
             :
             <>
               <div className="d-flex  justify-content-center w-100 my-2" >
-                <img className="dp_img" src={dummypic} alt={userInfo.username} />
+                <img className="dp_img" src={userInfo.img} alt={userInfo.username} loading="lazy" />
               </div>
               <h3 className="w-100 text-center">{userInfo.username}</h3>
               <h3 className="w-100 text-center">{userInfo.desc}</h3>

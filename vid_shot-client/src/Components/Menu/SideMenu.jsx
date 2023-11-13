@@ -23,7 +23,7 @@ const SideMenu = ({setOpen}) => {
           <div className="profile d-flex  justify-content-center my-1 shadow-lg">
             <div className="d-flex  flex-column">
               <div className="d-flex justify-content-center">
-                <img className="pp_img" src={dummypic} alt="display" />
+                <img className="pp_img" src={auth?.user?.img} alt="display" />
               </div>
               <p className="text-center my-1">{auth?.user?.username}</p>
               <div className="d-flex justify-content-between w-100">

@@ -6,6 +6,12 @@ export default (user=JSON.parse(localStorage.getItem("LoggedUser")) || null,acti
         case 'LOGOUT':
             localStorage.clear()
             return {user:null}
+        case 'UPDATE_USER':
+            const update_user = {
+                ...user,
+                user:action?.data
+            }
+            return update_user
         default:
             return user;
     }
