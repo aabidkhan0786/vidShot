@@ -24,4 +24,5 @@ export const likeVideo = (videoId)=> API.put(`user/like/${videoId}`)
 export const dislikeVideo = (videoId)=> API.put(`user/dislike/${videoId}`)
 
 // COMMENT
-export const addComment = (commentDetails)=> API.post("/comment",commentDetails)
+export const addComment = (commentDetails)=> API.post("/comment",commentDetails);
+export const getComment = (videoId)=> API.get(`/comment/${videoId}`);
