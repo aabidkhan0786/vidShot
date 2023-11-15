@@ -9,14 +9,14 @@ import SideMenu from "./Components/Menu/SideMenu";
 import ProfilePage from "./Components/Pages/ProfilePage";
 import VideoPlayer from "./Components/Pages/VideoPlayer";
 import Settings from "./Components/Pages/Settings";
+import Layout from "./Components/Home";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <div className="layout_cover">
-
-          <div className="side_bar sticky-top" >
+          <div className="side_bar" >
             <SideMenu />
           </div>
           <div className="main_content">
@@ -27,11 +27,11 @@ const App = () => {
                 <Route index element={<Home type="random" />} />
                 <Route path="trend" element={<Home type="trend" />} />
                 <Route path="subscribed" element={<Home type="subsVideo" />} />
+                <Route path="addvideo" element={<AddVideos />} />
+                <Route path="profile/:id" element={<ProfilePage />} />
+                <Route path="settings/:id" element={<Settings />} />
+                <Route path="video/:id" element={<VideoPlayer />} />
               </Route>
-              <Route path="/addvideo" element={<AddVideos />} />
-              <Route path="/profile/:id" element={<ProfilePage />} />
-              <Route path="/settings/:id" element={<Settings />} />
-              <Route path="/video/:id" element={<VideoPlayer />} />
             </Routes>
           </div>
         </div>

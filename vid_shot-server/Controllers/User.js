@@ -4,13 +4,13 @@ import CryptoJS from "crypto-js"
 
 
 // get a user
-export const getUser = async (req,res)=>{
+export const getUser = async (req, res) => {
   try {
     const user = await Users.findById(req.params.id)
     res.status(200).json(user)
   } catch (error) {
     console.log(error);
-    res.status(500).json({ msg: "error" });
+    res.status(500).json({ msg: error });
   }
 }
 
@@ -29,6 +29,7 @@ export const updateUser = async (req, res) => {
         { $set: req.body },
         { new: true }
       );
+      console.log(updatedUser);
       res.status(202).json(updatedUser);
     } catch (error) {
       res.status(500).json({ msg: "error" });
@@ -40,21 +41,25 @@ export const updateUser = async (req, res) => {
 
 // subscribe user
 export const subsUser = async (req, res) => {
-  if (req.userId === req.params.id) {
+  if (req.userId !== req.params.id) {
     try {
-      await Users.findById(
+      const user = await Users.findByIdAndUpdate(
         { _id: req.userId },
-        { $push: { subscribedUser: req.params.id } }
+        { $push: { subscribedUser: req.params.id } },
+        { new: true }
       );
-      await Users.findById(
+      await Users.findByIdAndUpdate(
         { _id: req.params.id },
         {
           $inc: { subscriber: 1 },
-        }
+        },
+        { new: true }
       );
-      res.status(204).json("User Subscribed!");
+      console.log(user);
+      res.status(202).json(user);
     } catch (error) {
-      res.status(500).json({ msg: "error" });
+      console.log(error);
+      res.status(500).json({ msg: error });
     }
   } else {
     res.status(500).json({ msg: "You are not authenticated!" });
@@ -62,21 +67,24 @@ export const subsUser = async (req, res) => {
 };
 // unsubscribe user
 export const unSubsUser = async (req, res) => {
-  if (req.userId === req.params.id) {
+  if (req.userId !== req.params.id) {
     try {
-      await Users.findById(
+      const user = await Users.findByIdAndUpdate(
         { _id: req.userId },
-        { $pull: { subscribedUser: req.params.id } }
+        { $pull: { subscribedUser: req.params.id } },
+        { new: true }
       );
-      await Users.findById(
+      await Users.findByIdAndUpdate(
         { _id: req.params.id },
         {
           $inc: { subscriber: -1 },
         }
       );
-      res.status(204).json("User unsubscribed!");
+      console.log(user);
+      res.status(202).json(user);
     } catch (error) {
-      res.status(500).json({ msg: "error" });
+      console.log(error);
+      res.status(500).json({ msg: error });
     }
   } else {
     res.status(500).json({ msg: "You are not authenticated!" });
@@ -84,29 +92,33 @@ export const unSubsUser = async (req, res) => {
 };
 
 // like videos
-export const likeVideos = async (req,res)=>{
-    const videoId = req.params.videoId
-    try {
-        await Videos.findByIdAndUpdate(videoId,{
-            $addToSet:{likes:req.userId},
-            $pull:{dislikes:req.userId}
-        })
-        res.status(202).json("Video has been liked!")
-    } catch (error) {
-        res.status(500).json({ msg:error });
-    }
+export const likeVideos = async (req, res) => {
+  const videoId = req.params.videoid
+  try {
+    const video = await Videos.findByIdAndUpdate(videoId, {
+      $addToSet: { likes: req.userId },
+      $pull: { dislikes: req.userId }
+    },
+      { new: true }
+    )
+    res.status(202).json(video)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: error });
+  }
 }
-
 // dislike videos
-export const disLikeVideos = async (req,res)=>{
-    const videoId = req.params.videoId
-    try {
-        await Videos.findByIdAndUpdate(videoId,{
-            $addToSet:{dislikes:req.userId},
-            $pull:{likes:req.userId}
-        })
-        res.status(202).json("Video has been disliked!")
-    } catch (error) {
-        res.status(500).json({ msg:error });
-    }
+export const disLikeVideos = async (req, res) => {
+  const videoId = req.params.videoid
+  try {
+    const vid = await Videos.findByIdAndUpdate(videoId, {
+      $addToSet: { dislikes: req.userId },
+      $pull: { likes: req.userId }
+    }, { new: true })
+console.log(vid);
+    res.status(202).json(vid)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: error });
+  }
 }

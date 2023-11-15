@@ -7,6 +7,7 @@ export default (user=JSON.parse(localStorage.getItem("LoggedUser")) || null,acti
             localStorage.clear()
             return {user:null}
         case 'UPDATE_USER':
+            console.log({data:action.data});
             const update_user = {
                 ...user,
                 user:action?.data

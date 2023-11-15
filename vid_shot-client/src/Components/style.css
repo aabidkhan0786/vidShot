@@ -23,6 +23,14 @@ a {
     color: black;
 }
 
+.input_text {
+    outline: none;
+    border: none;
+    /* margin: 10px; */
+    border-bottom: 3px solid #F1C376;
+    background-color: transparent;
+}
+
 .center_page {
     display: flex;
     justify-content: center;
@@ -236,7 +244,7 @@ input[type=search]:focus {
 /* VIDEO PLAYER DESIGN */
 .video_design {
     width: 300px;
-    height: 300px;
+    height: 330px;
     border-radius: 60px 15px;
     background-color: #F2F7FF;
     border: 1px solid #F1C376;
@@ -256,7 +264,7 @@ input[type=search]:focus {
 
 .video_div {
     width: 1032px;
-
+    height:500px;
 }
 
 .video_cover {
@@ -265,7 +273,23 @@ input[type=search]:focus {
     justify-content: center;
     flex-direction: column;
 }
+.caption_div{
+    border: 2px solid #F1C376;
+    border-radius: 10px;
+    background-color: #F2F7FF;
+    margin: 20px;
+    height: 92px;
+    padding-left: 10px;
+}
 
+.like_btn{
+    font-size: 20px;
+    /* color: #F1C376; */
+}
+.like_btn:hover{
+    /* font-size: 20px; */
+    color: #F2F7FF;
+}
 
 /* PROFILE */
 
@@ -304,4 +328,10 @@ input[type=search]:focus {
 .text_profile {
     border: 2px solid #F1C376;
     border-radius: 10px;
+}
+
+.small_dp{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
 }

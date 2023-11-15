@@ -5,7 +5,6 @@ const API = axios.create({baseURL:"http://localhost:8000/aak"})
 API.interceptors.request.use(req=>{
     if(localStorage.getItem('LoggedUser')){
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('LoggedUser')).token}`;
-        console.log(req.headers.Authorization.split(" ")[1]);
     }
     return req;
 })
@@ -15,7 +14,14 @@ export const signUp = (credentials)=> API.post(`/auth/signup`,credentials)
 export const signIn = (credentials)=> API.post(`/auth/signin`,credentials)
 export const getuser = (userId)=> API.get(`user/find/${userId}`)
 export const editUser = (userId,editDetails)=> API.put(`user/${userId}`,editDetails)
+export const subsUser = (userId)=> API.put(`user/sub/${userId}`)
+export const unSubsUser = (userId)=> API.put(`user/unsub/${userId}`)
 
 // Videos
 export const displayVideos = (type)=> API.get(`/video/${type}`)
 export const addVideos = (videoDetails)=> API.post("/video",videoDetails)
+export const likeVideo = (videoId)=> API.put(`user/like/${videoId}`)
+export const dislikeVideo = (videoId)=> API.put(`user/dislike/${videoId}`)
+
+// COMMENT
+export const addComment = (commentDetails)=> API.post("/comment",commentDetails)

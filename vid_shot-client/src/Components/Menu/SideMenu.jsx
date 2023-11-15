@@ -10,7 +10,7 @@ const SideMenu = ({setOpen}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = useSelector((state) => state.User);
-  console.log(auth.user);
+  console.log({state:auth?.user});
 
   return (
     <>
@@ -19,6 +19,9 @@ const SideMenu = ({setOpen}) => {
           <img width="50" src={logo} alt="logo" />
           VidShot
         </h5>
+        {
+          auth?.user ? 
+<>
         <div className="d-flex justify-content-center my-2">
           <div className="profile d-flex  justify-content-center my-1 shadow-lg">
             <div className="d-flex  flex-column">
@@ -62,6 +65,8 @@ const SideMenu = ({setOpen}) => {
             Logout
           </button>
         </div>
+</>:"hd"
+        }
       </div>
     </>
   );

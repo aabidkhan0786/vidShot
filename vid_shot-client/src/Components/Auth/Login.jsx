@@ -28,8 +28,8 @@ const Login = () => {
   }
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center signup shadow-lg">
-        <div className="login_cover">
+      <div className="center_page  shadow-lg">
+        <div className="profile_cover">
           <div className="login_pic">
             <img
               className="img_login"

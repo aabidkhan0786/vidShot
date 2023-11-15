@@ -55,3 +55,25 @@ export const editUser = (userId,userDetails)=> async (dispatch)=> {
     alert(error.response.data.msg);
   }
 }
+export const subsUser = (userId)=> async (dispatch)=> {
+  try {
+    const {data} = await Api.subsUser(userId)
+    console.log(data);
+    dispatch({type:"UPDATE_USER",data})
+    // return data
+  } catch (error) {
+    console.log(error.response.data.msg);
+    alert(error.response.data.msg);
+  }
+}
+export const unSubsUser = (userId)=> async (dispatch)=> {
+  try {
+    const {data} = await Api.unSubsUser(userId)
+    console.log(data);
+    dispatch({type:"UPDATE_USER",data})
+    // return data
+  } catch (error) {
+    console.log(error.response.data.msg);
+    alert(error.response.data.msg);
+  }
+}

@@ -25,7 +25,7 @@ const ProfilePage = () => {
       });
     };
     getUserById();
-  }, []);
+  }, [id]);
 
   const unHasedPassword = (hashPassword) => {
     const hashedpass = CryptoJS.AES.decrypt(hashPassword, "aabid0204");
@@ -105,7 +105,7 @@ const ProfilePage = () => {
             </>
             :
             <>
-              <div className="d-flex  justify-content-center w-100 my-2" >
+              <div className="d-flex justify-content-center w-100 my-2" >
                 <img className="dp_img" src={userInfo.img} alt={userInfo.username} loading="lazy" />
               </div>
               <h3 className="w-100 text-center">{userInfo.username}</h3>

@@ -23,12 +23,12 @@ const SignUp = () => {
 
   return (
     <>
-      <div className='d-flex justify-content-center align-items-center signup shadow-lg' >
-            <div className='signup_cover'>
+      <div className='center_page   shadow-lg' >
+            <div className='signup_cover '>
                 <div className='register_pic'>
                     <img className='img_register' src={registerPic} alt="register" />
                 </div>
-                <div className='register_form'>
+                <div className='register_form mt-4' >
                     <h3 className='text-center my-3 text-decoration-underline'>VidShot</h3>
                     <div className='d-flex flex-column p-3' >
                         <input type="email" onChange={(e)=>setEmail(e.target.value)} placeholder='vidshot@email.com' className='input_design' />
