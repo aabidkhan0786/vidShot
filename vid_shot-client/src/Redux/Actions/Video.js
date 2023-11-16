@@ -19,6 +19,16 @@ export const displayVideos = (type)=> async (dispatch)=>{
         console.log(error);
     }
 }
+export const getByTags = (tags)=> async (dispatch)=>{
+    try {
+        const {data} = await Api.getByTags(tags)
+        console.log({videos:data});
+        // dispatch({type:"SAVE_VIDEO",data})
+        return data
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const likeVideo = (videoId)=> async (dispatch)=> {
     try {

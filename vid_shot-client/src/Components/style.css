@@ -6,6 +6,7 @@
 
 }
 
+
 .main_content {
     width: 1032px;
     height: 100%;
@@ -18,6 +19,16 @@
 
 
 /* common */
+.hr_style{
+    border: 2px solid #F1C376;
+}
+
+
+p{
+    padding:0px;
+    margin:0px;
+}
+
 a {
     text-decoration: none;
     color: black;
@@ -29,6 +40,11 @@ a {
     /* margin: 10px; */
     border-bottom: 3px solid #F1C376;
     background-color: transparent;
+}
+
+.no_padding{
+    padding:0px;
+    margin:0px;
 }
 
 .center_page {
@@ -248,12 +264,15 @@ input[type=search]:focus {
     border-radius: 60px 15px;
     background-color: #F2F7FF;
     border: 1px solid #F1C376;
+    margin: 10px;
 }
 
 .video_container {
     display: flex;
     justify-content: space-between;
-    margin: 20px
+    margin: 20px;
+    flex-wrap: wrap;
+    /* padding:20px; */
 }
 
 .img_thumbnail {
@@ -278,7 +297,7 @@ input[type=search]:focus {
     border-radius: 10px;
     background-color: #F2F7FF;
     margin: 20px;
-    height: 92px;
+    /* height: 92px; */
     padding-left: 10px;
 }
 

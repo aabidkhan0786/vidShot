@@ -22,6 +22,8 @@ export const displayVideos = (type)=> API.get(`/video/${type}`)
 export const addVideos = (videoDetails)=> API.post("/video",videoDetails)
 export const likeVideo = (videoId)=> API.put(`user/like/${videoId}`)
 export const dislikeVideo = (videoId)=> API.put(`user/dislike/${videoId}`)
+export const getByTags = (tags)=> API.get(`/video/videotags?tags=${tags}`)
+
 
 // COMMENT
 export const addComment = (commentDetails)=> API.post("/comment",commentDetails);

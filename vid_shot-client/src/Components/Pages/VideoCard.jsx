@@ -6,17 +6,21 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const VideoCard = ({ video }) => {
-  const [channel, setChannel] = useState("");
+  const [channel, setChannel] = useState([]);
   const dispatch = useDispatch();
 
+  console.log({comming_video:video});
+
   useEffect(() => {
-    const getUserById = async () => {
-      const channels = dispatch(getUser(video?.userId));
+    const getUserById =  () => {
+      const channels =  dispatch(getUser(video?.userId));
       channels.then((res) => setChannel(res));
     };
     getUserById();
   }, [video.userId]);
+
   console.log(channel, video);
+
 
   return (
     <>

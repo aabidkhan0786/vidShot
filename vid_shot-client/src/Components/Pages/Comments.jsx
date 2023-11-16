@@ -36,11 +36,18 @@ const Comments = ({ user, videoId }) => {
                         Comment
                     </button>
                 </div>
+                <h5>Comments:</h5>
                 <div>
                     {
-                        comments?.map(comment => (
-                            <DisplayComment comment={comment} />
+                        (comments && comments.length == 0) ?
+                        <p className='text-center'>
+                        Be the first person to comment!
+                    </p>:
+                        comments?.map(com => (
+                            <DisplayComment comment={com} />
                         ))
+                        
+
                     }
                 </div>
             </div>

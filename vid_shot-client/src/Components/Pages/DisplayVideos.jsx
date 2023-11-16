@@ -9,7 +9,7 @@ const DisplayVideos = () => {
   return (
     <>
     <div className='video_container'>
-      {video?.map(vid => (
+      {video && video?.map(vid => (
         <>
           <VideoCard key={video._id} video={vid} />
         </>

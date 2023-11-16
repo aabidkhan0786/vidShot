@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { subsUser, unSubsUser } from '../../Redux/Actions/User';
 import { currentVideo, disLikeVideo, likeVideo } from '../../Redux/Actions/Video';
 import Comments from './Comments';
+import Recommendation from './Recommendation';
 
 
 const VideoPlayer = () => {
@@ -64,13 +65,13 @@ const VideoPlayer = () => {
             }
           </div>
         </div>
-        <hr/>
+        <hr  className=" hr_style  opacity-50"  />
         <div className='d-flex  w-100 justify-content-between' >
           <div className='w-50 mx-3'>
             <Comments user={auth.user} videoId={data.video._id} />
           </div>
-          <div>
-            recomd
+          <div className='w-50 mx-3'>
+            <Recommendation video={data.video}  />
           </div>
         </div>
       </div>
