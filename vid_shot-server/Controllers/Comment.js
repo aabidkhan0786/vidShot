@@ -31,7 +31,7 @@ export const deleteComment = async (req,res)=>{
 export const getComments = async (req,res)=>{
     try {
         const comments = await Comments.find({videoId:req.params.id})
-        res.status(200).json(comments)
+        res.status(200).json(comments?.flat()?.sort((a, b) => b.createdAt - a.createdAt))
     } catch (error) {
         console.log(error);
         res.status(500).json({msg:error})   

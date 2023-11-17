@@ -4,6 +4,10 @@ export default (video = JSON.parse(localStorage.getItem("video")) || null, actio
             console.log(action.data);
             localStorage.setItem("video", JSON.stringify(action?.data));
             return action.data
+        case "SEARCH_VIDEO":
+            console.log(action.data);
+            localStorage.setItem("video", JSON.stringify(action?.data));
+            return action.data
         case 'LIKE_VIDEO':
             const newState = video.map(v => (v._id === action.data._id ? action.data : v))
             localStorage.setItem("video", JSON.stringify(newState));

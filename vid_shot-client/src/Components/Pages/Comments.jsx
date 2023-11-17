@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment, getComment } from '../../Redux/Actions/Comment';
-import { getUser } from '../../Redux/Actions/User';
 import DisplayComment from './DisplayComment';
 
 const Comments = ({ user, videoId }) => {
     const [comment, setComment] = useState("")
-    const [userCom, setUserCom] = useState("")
     const dispatch = useDispatch()
     const comments = useSelector(state => state.Comment)
     console.log(user._id, videoId, comments);
@@ -23,7 +21,9 @@ const Comments = ({ user, videoId }) => {
     }
     useEffect(() => {
         dispatch(getComment(videoId))
-    }, [])
+    }, [videoId])
+
+
 
     console.log(comment);
     return (
@@ -40,14 +40,12 @@ const Comments = ({ user, videoId }) => {
                 <div>
                     {
                         (comments && comments.length == 0) ?
-                        <p className='text-center'>
-                        Be the first person to comment!
-                    </p>:
-                        comments?.map(com => (
-                            <DisplayComment comment={com} />
-                        ))
-                        
-
+                            <p className='text-center'>
+                                Be the first person to comment!
+                            </p> :
+                            comments?.flat().sort((a, b) => b.createdAt - a.createdAt).map(com => (
+                                <DisplayComment comment={com} />
+                            ))
                     }
                 </div>
             </div>

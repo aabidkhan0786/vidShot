@@ -3,7 +3,6 @@ import * as Api from "../API.js";
 export const signUp = (credentials, navigate) => async (dispatch) => {
   try {
     const { data } = await Api.signUp(credentials);
-    console.log({ cred: data });
     dispatch({ type: "AUTH", data });
     navigate("/");
   } catch (error) {

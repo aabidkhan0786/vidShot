@@ -18,7 +18,7 @@ const DisplayComment = ({ comment }) => {
 
     return (
         <>
-            <div className='d-flex caption_div flex-column my-3'>
+            <div className='d-flex caption_div flex-column my-3' >
                 <div className='d-flex pt-1 no_padding'>
                     <img src={userCom.img} className='small_dp' />
                     <p className='p-2 no_padding'>

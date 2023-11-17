@@ -1,6 +1,19 @@
 import Users from "../Models/User.js";
 import Videos from "../Models/Video.js";
 
+
+// get a user
+export const getVideo = async (req, res) => {
+  try {
+    const video = await Videos.find({ userId: req.params.id })
+    console.log({ video });
+    res.status(200).json(video)
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: error });
+  }
+}
+
 // add video
 export const addVideo = async (req, res) => {
   try {
@@ -94,15 +107,15 @@ export const subsVideos = async (req, res) => {
     console.log(user);
     const subscribedChannels = user.subscribedUser;
     if (subscribedChannels.length == 0) {
-      res.status(200).json("you havnt")
+      res.status(200).json([])
     } else {
       const list = await Promise.all(
         subscribedChannels.map(channelId => {
           return Videos.find({ userId: channelId })
         })
       )
-      res.status(200).json(list.flat().sort(a, b => b.createdAt - a.createdAt))
-
+      console.log(list);
+      res.status(200).json(list.flat().sort((a, b) => b.createdAt - a.createdAt))
     }
 
   } catch (error) {
@@ -123,12 +136,13 @@ export const getByTags = async (req, res) => {
   }
 }
 
-
 // search a video
 export const getBySearch = async (req, res) => {
+  console.log(req.query.q);
   const search = req.query.q
   try {
     const videos = await Videos.find({ title: { $regex: search, $options: "i" } }).limit(30)
+    console.log(videos);
     res.status(200).json(videos)
   } catch (error) {
     res.status(500).json({ msg: error });

@@ -9,6 +9,15 @@ export const addVideos =(videoDetails)=> async (dispatch)=>{
         console.log(error);
     }
 }
+export const getVideo =(userId)=> async (dispatch)=>{
+    try {
+        const {data} = await Api.getVideo(userId)
+        console.log({videoDetail:data});
+        return data
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 export const displayVideos = (type)=> async (dispatch)=>{
     try {
@@ -25,6 +34,16 @@ export const getByTags = (tags)=> async (dispatch)=>{
         console.log({videos:data});
         // dispatch({type:"SAVE_VIDEO",data})
         return data
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const getByTitle = (search)=> async (dispatch)=>{
+    try {
+        const {data} = await Api.getByTitle(search)
+        console.log({videos:data});
+        dispatch({type:"SEARCH_VIDEO",data})
+        // return data
     } catch (error) {
         console.log(error);
     }

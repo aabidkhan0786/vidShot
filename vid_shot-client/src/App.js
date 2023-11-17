@@ -10,6 +10,8 @@ import ProfilePage from "./Components/Pages/ProfilePage";
 import VideoPlayer from "./Components/Pages/VideoPlayer";
 import Settings from "./Components/Pages/Settings";
 import Layout from "./Components/Home";
+import MyVideos from "./Components/Pages/MyVideos";
+import Avatar from 'react-avatar';
 
 const App = () => {
   return (
@@ -26,8 +28,9 @@ const App = () => {
               <Route path="/" element={<PrivateRoutes />}>
                 <Route index element={<Home type="random" />} />
                 <Route path="trend" element={<Home type="trend" />} />
-                <Route path="subscribed" element={<Home type="subsVideo" />} />
+                <Route path="subscribed" element={<Home type="subsvideo" />} />
                 <Route path="addvideo" element={<AddVideos />} />
+                <Route path="myvideo" element={<MyVideos />} />
                 <Route path="profile/:id" element={<ProfilePage />} />
                 <Route path="settings/:id" element={<Settings />} />
                 <Route path="video/:id" element={<VideoPlayer />} />

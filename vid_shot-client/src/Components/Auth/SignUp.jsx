@@ -17,7 +17,6 @@ const SignUp = () => {
       email,
       password
     }
-    console.log({creds});
     dispatch(signUp(creds,navigate))
   }
 

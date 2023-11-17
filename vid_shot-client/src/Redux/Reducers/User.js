@@ -12,6 +12,7 @@ export default (user=JSON.parse(localStorage.getItem("LoggedUser")) || null,acti
                 ...user,
                 user:action?.data
             }
+            localStorage.setItem("LoggedUser", JSON.stringify(update_user));
             return update_user
         default:
             return user;

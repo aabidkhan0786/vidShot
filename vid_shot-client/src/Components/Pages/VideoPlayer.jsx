@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom'
 import { subsUser, unSubsUser } from '../../Redux/Actions/User';
-import { currentVideo, disLikeVideo, likeVideo } from '../../Redux/Actions/Video';
+import { disLikeVideo, likeVideo } from '../../Redux/Actions/Video';
 import Comments from './Comments';
 import Recommendation from './Recommendation';
 
@@ -32,11 +32,11 @@ const VideoPlayer = () => {
                 <i className="fa-solid fa-heart" onClick={e => dispatch(disLikeVideo(data.video._id))} ></i> :
                 <i className="fa-regular fa-heart" onClick={e => dispatch(likeVideo(data.video._id))} ></i>
             }
-            {data?.video?.likes.length}
+            {data?.video?.likes?.length}
           </button>
         </div>
         <div className='d-flex w-100 justify-content-between mx-2'>
-          <Link to={`/profile/${data.channel?._id}`} >
+          <Link to={`/profile/${data.channel?._id}`} state={{user:data?.channel}} >
             <div className='d-flex ' >
               <img src={data.channel.img} className='small_dp' alt={data.channel.username} />
               <p className='p-2' >{data.channel.username}</p>
@@ -66,7 +66,7 @@ const VideoPlayer = () => {
           </div>
         </div>
         <hr  className=" hr_style  opacity-50"  />
-        <div className='d-flex  w-100 justify-content-between' >
+        <div className='d-flex  w-100 justify-content-between' style={{maxHeight: "600px", overflowY:"auto" }} >
           <div className='w-50 mx-3'>
             <Comments user={auth.user} videoId={data.video._id} />
           </div>

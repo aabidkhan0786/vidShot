@@ -13,7 +13,7 @@ const VideoCard = ({ video }) => {
 
   useEffect(() => {
     const getUserById =  () => {
-      const channels =  dispatch(getUser(video?.userId));
+      const channels =  dispatch(getUser(video.userId));
       channels.then((res) => setChannel(res));
     };
     getUserById();
@@ -34,7 +34,7 @@ const VideoCard = ({ video }) => {
           <h4 className="m-1">{video?.title}</h4>
           <div className="d-flex flex-column">
             <div className="d-flex w-100 justify-content-between" >
-              <Link to={`/profile/${channel?._id}`} >
+              <Link to={`/profile/${channel?._id}`} state={{user:channel}} >
                 <div className="d-flex">
                   <img src={channel?.img} className="small_dp" alt={channel?.username} />
                   <h6 className="lead p-2">{channel?.username}</h6>

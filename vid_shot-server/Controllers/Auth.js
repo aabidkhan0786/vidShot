@@ -14,11 +14,11 @@ export const signUp = async (req,res)=>{
                 email:req.body.email,
                 password: CryptoJS.AES.encrypt(req.body.password,process.env.CRYPTO).toString()
             })
-            const savedUser = await newUser.save()
+            const user = await newUser.save()
             const token = jwt.sign({
-                id:savedUser._id
+                id:user._id
             },process.env.HASH_KEY,{expiresIn:"3d"})
-            res.status(201).json({savedUser,token})
+            res.status(201).json({user,token})
         }
     } catch (error) {
         console.log(error);
