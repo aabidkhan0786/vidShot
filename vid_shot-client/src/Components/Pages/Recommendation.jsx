@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getByTags } from '../../Redux/Actions/Video'
-import { getUser } from '../../Redux/Actions/User'
-import VideoCard from './VideoCard'
 import RecommendCard from './RecommendCard'
 
 const Recommendation = ({ video }) => {

@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8000/aak"
+  "proxy": "https://vid-shot-server.vercel.app/aak"
 }

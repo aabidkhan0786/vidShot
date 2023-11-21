@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getUser, subsUser } from "../../Redux/Actions/User";
-import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../Redux/Actions/User";
+import { useDispatch } from "react-redux";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Avatar from "react-avatar";
 
 const VideoCard = ({ video }) => {
@@ -30,6 +29,7 @@ const VideoCard = ({ video }) => {
                 src={video?.imgUrl}
                 alt={video?.title}
                 className="img-fluid img_thumbnail"
+                loading="lazy"
               />
               <h4 className="m-1">{video?.title}</h4>
               <div className="d-flex flex-column">
