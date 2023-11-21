@@ -6,17 +6,14 @@
 
 }
 
-
 .main_content {
     width: 1032px;
     height: 100%;
     position: absolute;
     scroll-behavior: smooth;
     left: 240px;
-    /* background-color: red; */
     overflow-x: hidden;
 }
-
 
 /* common */
 .hr_style{
@@ -40,7 +37,6 @@ a{
 .input_text {
     outline: none;
     border: none;
-    /* margin: 10px; */
     border-bottom: 3px solid #F1C376;
     background-color: transparent;
 }
@@ -75,7 +71,7 @@ a{
     border-radius: 60px 15px;
     outline: none;
     border: 2px solid #F1C376;
-    transition: background 1s;
+    transition: background 2s;
 }
 
 .basic_btn_cancel:hover {
@@ -360,6 +356,16 @@ input[type=search]:focus {
     border-radius: 100%;
     background: rgb(166, 42, 33);
     font-size: 100px;
+}
+.sb-avatar__text_3{
+    width: 40px !important;
+    height: 40px !important;
+    line-height: initial;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 100%;
+    background: rgb(166, 42, 33);
+    font-size: 30px !important;
 }
 
 .sb-avatar .sb-avatar--text {

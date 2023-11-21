@@ -6,7 +6,6 @@ const MyVideos = () => {
   const location = useLocation()
   const data = location.state
 
-  console.log(data);
   return (
     <div className='video_container'>
       {
@@ -22,5 +21,4 @@ const MyVideos = () => {
     </div>
   )
 }
-
-export default MyVideos
+export default MyVideos;

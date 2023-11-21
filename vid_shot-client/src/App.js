@@ -8,7 +8,6 @@ import AddVideos from "./Components/Pages/AddVideos";
 import SideMenu from "./Components/Menu/SideMenu";
 import ProfilePage from "./Components/Pages/ProfilePage";
 import VideoPlayer from "./Components/Pages/VideoPlayer";
-import Settings from "./Components/Pages/Settings";
 import Layout from "./Components/Home";
 import MyVideos from "./Components/Pages/MyVideos";
 import Avatar from 'react-avatar';
@@ -32,7 +31,6 @@ const App = () => {
                 <Route path="addvideo" element={<AddVideos />} />
                 <Route path="myvideo" element={<MyVideos />} />
                 <Route path="profile/:id" element={<ProfilePage />} />
-                <Route path="settings/:id" element={<Settings />} />
                 <Route path="video/:id" element={<VideoPlayer />} />
               </Route>
             </Routes>

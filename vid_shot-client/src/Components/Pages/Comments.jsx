@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addComment, getComment } from '../../Redux/Actions/Comment';
 import DisplayComment from './DisplayComment';
+import Avatar from 'react-avatar';
 
 const Comments = ({ user, videoId }) => {
     const [comment, setComment] = useState("")
     const dispatch = useDispatch()
     const comments = useSelector(state => state.Comment)
-    console.log(user._id, videoId, comments);
-
 
     const handleComment = () => {
         const commentDetails = {
@@ -23,14 +22,11 @@ const Comments = ({ user, videoId }) => {
         dispatch(getComment(videoId))
     }, [videoId])
 
-
-
-    console.log(comment);
     return (
         <>
             <div>
                 <div className='d-flex m-2'>
-                    <img alt={user.username} src={user.img} className='small_dp' />
+                    <Avatar name={user.username} src={user.img} className="sb-avatar__text_3" round={true} />
                     <input type="text" placeholder={`${user.username}, add comment`} className='input_text w-100 px-2' value={comment} onChange={e => setComment(e.target.value)} />
                     <button className='basic_btn_cancel px-2' onClick={handleComment} >
                         Comment

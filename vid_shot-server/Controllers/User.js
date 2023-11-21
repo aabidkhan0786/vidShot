@@ -29,7 +29,6 @@ export const updateUser = async (req, res) => {
         { $set: req.body },
         { new: true }
       );
-      console.log(updatedUser);
       res.status(202).json(updatedUser);
     } catch (error) {
       res.status(500).json({ msg: "error" });
@@ -55,7 +54,6 @@ export const subsUser = async (req, res) => {
         },
         { new: true }
       );
-      console.log(user);
       res.status(202).json(user);
     } catch (error) {
       console.log(error);
@@ -80,10 +78,8 @@ export const unSubsUser = async (req, res) => {
           $inc: { subscriber: -1 },
         }
       );
-      console.log(user);
       res.status(202).json(user);
     } catch (error) {
-      console.log(error);
       res.status(500).json({ msg: error });
     }
   } else {
@@ -115,7 +111,6 @@ export const disLikeVideos = async (req, res) => {
       $addToSet: { dislikes: req.userId },
       $pull: { likes: req.userId }
     }, { new: true })
-console.log(vid);
     res.status(202).json(vid)
   } catch (error) {
     console.log(error);

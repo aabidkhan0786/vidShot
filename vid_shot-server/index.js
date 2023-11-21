@@ -14,17 +14,17 @@ configDotenv()
 app.use(cors())
 app.use(express.json({ limit: '10mb' }));
 
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
     res.status(200).json("Welcome to AAK's VidShot!!");
 })
 
-app.use("/aak/auth",authRoutes)
-app.use("/aak/user",userRoutes)
-app.use("/aak/video",videoRoutes)
-app.use("/aak/comment",commentRoutes)
+app.use("/aak/auth", authRoutes)
+app.use("/aak/user", userRoutes)
+app.use("/aak/video", videoRoutes)
+app.use("/aak/comment", commentRoutes)
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGODB_URL,{useNewUrlParser: true, useUnifiedTopology:true} )
-.then(()=> app.listen(port,()=>console.log(`server running at ${port}`)))
-.catch(error=>console.log(error))
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(port, () => console.log(`server running at ${port}`)))
+    .catch(error => console.log(error))

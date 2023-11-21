@@ -10,15 +10,13 @@ const Recommendation = ({ video }) => {
     const [recommend, setRecommend] = useState([])
 
     useEffect(() => {
-        const getVideoByTag = ()=>{
+        const getVideoByTag = () => {
             const tagvideo = dispatch(getByTags(video.tags))
             tagvideo.then((res) => setRecommend(res.filter((vid) => vid._id !== video._id)))
         }
         getVideoByTag()
     }, [video.tags])
 
-
-    console.log(video, recommend);
     return (
         <>
             <h5>Recommendations:</h5>
@@ -28,11 +26,10 @@ const Recommendation = ({ video }) => {
                         "No similar video found!"
                     </p> :
                     recommend.map(v => (
-                       <RecommendCard v={v} />
+                        <RecommendCard v={v} />
                     ))
             }
         </>
     )
 }
-
-export default Recommendation
+export default Recommendation;

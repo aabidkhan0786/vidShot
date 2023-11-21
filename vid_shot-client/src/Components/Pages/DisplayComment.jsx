@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../Redux/Actions/User';
 import { format } from "timeago.js";
+import Avatar from 'react-avatar';
 
 const DisplayComment = ({ comment }) => {
     const dispatch = useDispatch()
     const [userCom, setUserCom] = useState('')
 
-    console.log({get_user_inside_comment:comment});
     useEffect(() => {
         const getUserById = () => {
             const userComment = dispatch(getUser(comment?.userId));
@@ -20,7 +20,7 @@ const DisplayComment = ({ comment }) => {
         <>
             <div className='d-flex caption_div flex-column my-3' >
                 <div className='d-flex pt-1 no_padding'>
-                    <img src={userCom.img} className='small_dp' />
+                    <Avatar src={userCom.img} className="sb-avatar__text_3" round={true} name={userCom.username} />
                     <p className='p-2 no_padding'>
                         {userCom.username}
                     </p>
@@ -35,5 +35,4 @@ const DisplayComment = ({ comment }) => {
         </>
     )
 }
-
-export default DisplayComment
+export default DisplayComment;

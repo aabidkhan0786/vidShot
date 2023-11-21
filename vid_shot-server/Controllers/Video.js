@@ -6,7 +6,6 @@ import Videos from "../Models/Video.js";
 export const getVideo = async (req, res) => {
   try {
     const video = await Videos.find({ userId: req.params.id })
-    console.log({ video });
     res.status(200).json(video)
   } catch (error) {
     console.log(error);
@@ -104,7 +103,6 @@ export const trendVideo = async (req, res) => {
 export const subsVideos = async (req, res) => {
   try {
     const user = await Users.findById(req.userId)
-    console.log(user);
     const subscribedChannels = user.subscribedUser;
     if (subscribedChannels.length == 0) {
       res.status(200).json([])
@@ -114,10 +112,8 @@ export const subsVideos = async (req, res) => {
           return Videos.find({ userId: channelId })
         })
       )
-      console.log(list);
       res.status(200).json(list.flat().sort((a, b) => b.createdAt - a.createdAt))
     }
-
   } catch (error) {
     console.log({ msg: error });
     res.status(500).json({ msg: error });
@@ -138,11 +134,9 @@ export const getByTags = async (req, res) => {
 
 // search a video
 export const getBySearch = async (req, res) => {
-  console.log(req.query.q);
   const search = req.query.q
   try {
     const videos = await Videos.find({ title: { $regex: search, $options: "i" } }).limit(30)
-    console.log(videos);
     res.status(200).json(videos)
   } catch (error) {
     res.status(500).json({ msg: error });

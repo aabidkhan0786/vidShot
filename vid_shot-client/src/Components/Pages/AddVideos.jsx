@@ -65,8 +65,6 @@ const AddVideos = () => {
     setTags(e.target.value.split(","))
   }
 
-
-
   useEffect(() => {
     video && uploadFile(video, "videoUrl");
   }, [video])
@@ -76,15 +74,13 @@ const AddVideos = () => {
   }, [img])
 
   const addVid = () => {
-    if(video == "" || img == "" || inputs=={}){
+    if (video == "" || img == "" || inputs == {}) {
       return alert("Please fill up the fields!")
-    }else{
+    } else {
       dispatch(addVideos({ ...inputs, tags }))
       navigate("/")
     }
   }
-
-  console.log({video,img,inputs});
 
   return (
     <>
@@ -168,11 +164,9 @@ const AddVideos = () => {
           <center>
             <button className="basic_btn w-50 mb-3" onClick={addVid}>Upload</button>
           </center>
-
         </div>
       </div>
     </>
   );
 };
-
 export default AddVideos;
