@@ -23,13 +23,16 @@
     border: 2px solid #F1C376;
 }
 
+input{
+    accent-color: #F1C376 !important;
+}
 
 p{
     padding:0px;
     margin:0px;
 }
 
-a {
+a{
     text-decoration: none;
     color: black;
 }
@@ -62,15 +65,17 @@ a {
     border-radius: 60px 15px;
     outline: none;
     border: 2px solid #F1C376;
+    transition: background 1s;
 }
 
-.basic_btn_cancel {
+.basic_btn_cancel{
     background-color: #F2F7FF;
     color: black;
     height: 40px;
     border-radius: 60px 15px;
     outline: none;
     border: 2px solid #F1C376;
+    transition: background 1s;
 }
 
 .basic_btn_cancel:hover {
@@ -121,7 +126,7 @@ a {
 .profile {
     width: 210px;
     border: 2px solid whitesmoke;
-    height: 240px;
+    /* height: 240px; */
     background-color: #F2F7FF;
     border-radius: 50px 15px;
 }
@@ -346,14 +351,21 @@ input[type=search]:focus {
     background: rgb(166, 42, 33);
     font-size: 100px;
 }
+.sb-avatar__text_2{
+    width: 130px !important;
+    height: 130px !important;
+    line-height: initial;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 100%;
+    background: rgb(166, 42, 33);
+    font-size: 100px;
+}
 
 .sb-avatar .sb-avatar--text {
     display: inline-block;
     vertical-align: middle;
     width: 300px; 
-    /* height: 300px;
-    border-radius: 50%;
-    font-family: Helvetica, Arial, sans-serif;
 }
 
 .input_profile {

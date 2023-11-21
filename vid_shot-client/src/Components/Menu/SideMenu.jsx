@@ -43,7 +43,7 @@ const SideMenu = ({ setOpen }) => {
                   <div className="d-flex  flex-column">
                     <div className="d-flex justify-content-center">
                       {/* <img className="pp_img" src={auth?.user?.img} alt="display" /> */}
-                      <Avatar name={auth?.user?.username} src={auth?.user?.img} round={true} />
+                      <Avatar name={auth?.user?.username} className="sb-avatar__text_2" src={auth?.user?.img} round={true} />
                     </div>
                     <p className="text-center my-1">{auth?.user?.username}</p>
                     <div className="d-flex justify-content-between mt-1 w-100">
@@ -53,7 +53,7 @@ const SideMenu = ({ setOpen }) => {
                       |<p className="px-1">Videos: {myVideo?.length || "0"}</p>
                     </div>
                     <Link to={`/profile/${auth?.user?._id}`} state={{user:auth?.user}} >
-                      <button className="basic_btn width_btn mt-2">
+                      <button className="basic_btn width_btn mt-2 mb-1">
                         <i className="fa-solid fa-user px-1"></i>Profile
                       </button>
                     </Link>
