@@ -20,7 +20,7 @@ export const unSubsUser = (userId) => API.put(`user/unsub/${userId}`)
 // Videos
 export const displayVideos = (type) => API.get(`/video/${type}`)
 export const addVideos = (videoDetails) => API.post("/video", videoDetails)
-export const getVideo = (userId) => API.put(`/video/${userId}`)
+export const getVideo = (userId) => API.get(`/video/${userId}`)
 export const likeVideo = (videoId) => API.put(`user/like/${videoId}`)
 export const dislikeVideo = (videoId) => API.put(`user/dislike/${videoId}`)
 export const getByTags = (tags) => API.get(`/video/videotags?tags=${tags}`)
