@@ -14,7 +14,6 @@ export const signUp = (credentials, navigate) => async (dispatch) => {
 export const signIn = (credentials, navigate) => async (dispatch) => {
   try {
     const { data } = await Api.signIn(credentials);
-    console.log({ cred: data });
     dispatch({ type: "AUTH", data });
     navigate("/");
   } catch (error) {
@@ -35,7 +34,6 @@ export const logout = (navigate) => async (dispatch) => {
 export const getUser =(userId)=> async (dispatch)=> {
   try {
     const {data} = await Api.getuser(userId)
-    console.log(data);
     return data
   } catch (error) {
     console.log(error.response.data.msg);
@@ -46,7 +44,6 @@ export const getUser =(userId)=> async (dispatch)=> {
 export const editUser = (userId,userDetails)=> async (dispatch)=> {
   try {
     const {data} = await Api.editUser(userId,userDetails)
-    console.log(data);
     dispatch({type:"UPDATE_USER",data})
     return data
   } catch (error) {

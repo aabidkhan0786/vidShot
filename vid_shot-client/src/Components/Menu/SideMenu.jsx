@@ -8,7 +8,7 @@ import { logout } from "../../Redux/Actions/User";
 import { getVideo } from "../../Redux/Actions/Video";
 import Avatar from "react-avatar";
 
-const SideMenu = ({ setOpen }) => {
+const SideMenu = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const auth = useSelector((state) => state.User);

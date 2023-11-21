@@ -16,7 +16,7 @@ const Home = ({ type }) => {
     <>
       <Search />
       <div className='video_container'>
-        {video?.length != 0 ? video.map(vid => (
+        {video?.length != 0 ? video?.map(vid => (
           <>
             <VideoCard key={video._id} video={vid} />
           </>

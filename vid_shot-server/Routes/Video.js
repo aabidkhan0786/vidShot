@@ -5,7 +5,7 @@ import Auth from "../Middlewares/Auth.js";
 const router = express.Router()
 
 router.post("/",Auth ,addVideo)
-router.put("/:id",Auth,getVideo)
+router.get("/:id",Auth,getVideo)
 router.put("/:id",Auth,updateVideo)
 router.delete("/:id",Auth,deleteVideo)
 router.get("/view",Auth,viewVideo)
