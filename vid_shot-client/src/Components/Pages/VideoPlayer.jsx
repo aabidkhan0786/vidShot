@@ -61,7 +61,7 @@ const VideoPlayer = () => {
           </div>
         </div>
         <div className='caption_div lead'>
-          <p className='p-2 '>{cvideo.desc}</p>
+          <p className='p-2 '>{cvideo?.desc}</p>
           <div className='d-flex' >
             {
               cvideo?.tags.map(tag => (
