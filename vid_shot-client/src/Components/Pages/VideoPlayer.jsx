@@ -22,14 +22,14 @@ const VideoPlayer = () => {
   return (
     <> 
       <div className='video_cover'>
-        <video src={cvideo.videoUrl} type="video/mp4" controls className='video_div' />
+        <video src={cvideo?.videoUrl} type="video/mp4" controls className='video_div' />
         <div className='d-flex justify-content-between'>
-          <h4 className='p-2'>{cvideo.title}</h4>
+          <h4 className='p-2'>{cvideo?.title}</h4>
           <button className='basic_btn_cancel px-4 mt-2 like_btn'>
             {
-              cvideo?.likes?.includes(auth.user._id) ?
-                <i className="fa-solid fa-heart" onClick={e => dispatch(disLikeVideo(cvideo._id))} ></i> :
-                <i className="fa-regular fa-heart" onClick={e => dispatch(likeVideo(cvideo._id))} ></i>
+              cvideo?.likes?.includes(auth?.user._id) ?
+                <i className="fa-solid fa-heart" onClick={e => dispatch(disLikeVideo(cvideo?._id))} ></i> :
+                <i className="fa-regular fa-heart" onClick={e => dispatch(likeVideo(cvideo?._id))} ></i>
             }
             {
               cvideo?.likes?.length
@@ -60,7 +60,7 @@ const VideoPlayer = () => {
           <p className='p-2 '>{cvideo.desc}</p>
           <div className='d-flex' >
             {
-              cvideo.tags.map(tag => (
+              cvideo?.tags.map(tag => (
                 <p>#{tag}</p>
               ))
             }
