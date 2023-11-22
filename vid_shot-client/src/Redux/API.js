@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:8000/aak" })
-// const API = axios.create({ baseURL: "https://vid-shot-server.vercel.app/aak" })
+// const API = axios.create({ baseURL: "http://localhost:8000/aak" })
+const API = axios.create({ baseURL: "https://vid-shot-server.vercel.app/aak" })
 
 API.interceptors.request.use(req => {
     if (localStorage.getItem('LoggedUser')) {

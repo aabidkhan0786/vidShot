@@ -14,16 +14,11 @@ const VideoPlayer = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.User);
   const cvideo = useSelector((state) => state.CurrentVideo);
-  const state = useSelector((state) => state);
-
-  console.log({state});
-  console.log(data);
 
   useEffect(()=>{
     dispatch(currentVideo(data.video))
   },[data.video])
 
-  console.log(cvideo);
   return (
     <> 
       <div className='video_cover'>
@@ -44,7 +39,6 @@ const VideoPlayer = () => {
         <div className='d-flex w-100 justify-content-between mx-2'>
           <Link to={`/profile/${data.channel?._id}`} state={{ user: data?.channel }} >
             <div className='d-flex ' >
-              {/* <img src={data.channel.img} className='small_dp' alt={data.channel.username} /> */}
               <Avatar src={data.channel.img} className="sb-avatar__text_3" round={true} name={data.channel.username} />
               <p className='p-2' >{data.channel.username}</p>
             </div>
