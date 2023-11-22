@@ -19,8 +19,12 @@ const VideoPlayer = () => {
     dispatch(currentVideo(data.video))
   },[data.video])
 
+  console.log(cvideo);
+
   return (
-    <> 
+    <>
+    {
+      cvideo.length != 0 ?
       <div className='video_cover'>
         <video src={cvideo?.videoUrl} type="video/mp4" controls className='video_div' />
         <div className='d-flex justify-content-between'>
@@ -75,7 +79,10 @@ const VideoPlayer = () => {
             <Recommendation video={data.video} />
           </div>
         </div>
-      </div>
+      </div>:
+      <center>Loading...</center>
+
+    }
     </>
   )
 }
