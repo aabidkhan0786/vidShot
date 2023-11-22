@@ -7,10 +7,12 @@ import VideoCard from "./Pages/VideoCard";
 const Home = ({ type }) => {
   const dispatch = useDispatch();
   const video = useSelector(state => state.Video)
+  console.log(video);
 
   useEffect(() => {
     dispatch(displayVideos(type));
   }, [type]);
+
 
   return (
     <>

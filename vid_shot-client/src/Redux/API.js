@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const API = axios.create({ baseURL: "http://localhost:8000/aak" })
-const API = axios.create({ baseURL: "https://vid-shot-server.vercel.app/aak" })
+const API = axios.create({ baseURL: "http://localhost:8000/aak" })
+// const API = axios.create({ baseURL: "https://vid-shot-server.vercel.app/aak" })
 
 API.interceptors.request.use(req => {
     if (localStorage.getItem('LoggedUser')) {
@@ -21,7 +21,7 @@ export const unSubsUser = (userId) => API.put(`user/unsub/${userId}`)
 // Videos
 export const displayVideos = (type) => API.get(`/video/${type}`)
 export const addVideos = (videoDetails) => API.post("/video", videoDetails)
-export const getVideo = (userId) => API.get(`/video/${userId}`)
+export const getVideo = (userId) => API.get(`/video/find/${userId}`)
 export const likeVideo = (videoId) => API.put(`user/like/${videoId}`)
 export const dislikeVideo = (videoId) => API.put(`user/dislike/${videoId}`)
 export const getByTags = (tags) => API.get(`/video/videotags?tags=${tags}`)

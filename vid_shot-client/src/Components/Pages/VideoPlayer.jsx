@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom'
 import { subsUser, unSubsUser } from '../../Redux/Actions/User';
@@ -13,27 +13,31 @@ const VideoPlayer = () => {
   const data = location.state;
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.User);
-  const video = useSelector((state) => state.Video);
+  const cvideo = useSelector((state) => state.CurrentVideo);
+  const state = useSelector((state) => state);
 
+  console.log({state});
+  console.log(data);
 
-  useEffect(() => {
+  useEffect(()=>{
     dispatch(currentVideo(data.video))
-  }, [])
+  },[data.video])
 
+  console.log(cvideo);
   return (
-    <>
+    <> 
       <div className='video_cover'>
-        <video src={video[0].videoUrl} type="video/mp4" controls className='video_div' />
+        <video src={cvideo.videoUrl} type="video/mp4" controls className='video_div' />
         <div className='d-flex justify-content-between'>
-          <h4 className='p-2'>{video[0].title}</h4>
+          <h4 className='p-2'>{cvideo.title}</h4>
           <button className='basic_btn_cancel px-4 mt-2 like_btn'>
             {
-              video[0]?.likes?.includes(auth.user._id) ?
-                <i className="fa-solid fa-heart" onClick={e => dispatch(disLikeVideo(data.video._id))} ></i> :
-                <i className="fa-regular fa-heart" onClick={e => dispatch(likeVideo(data.video._id))} ></i>
+              cvideo?.likes?.includes(auth.user._id) ?
+                <i className="fa-solid fa-heart" onClick={e => dispatch(disLikeVideo(cvideo._id))} ></i> :
+                <i className="fa-regular fa-heart" onClick={e => dispatch(likeVideo(cvideo._id))} ></i>
             }
             {
-              video[0]?.likes?.length
+              cvideo?.likes?.length
             }
           </button>
         </div>
@@ -59,16 +63,16 @@ const VideoPlayer = () => {
           </div>
         </div>
         <div className='caption_div lead'>
-          <p className='p-2 '>{data.video.desc}</p>
+          <p className='p-2 '>{cvideo.desc}</p>
           <div className='d-flex' >
             {
-              data.video.tags.map(tag => (
+              cvideo.tags.map(tag => (
                 <p>#{tag}</p>
               ))
             }
           </div>
         </div>
-        <hr className=" hr_style  opacity-50" />
+        <hr className="hr_style  opacity-50" />
         <div className='d-flex  w-100 justify-content-between' style={{ maxHeight: "600px", overflowY: "auto" }} >
           <div className='w-50 mx-3'>
             <Comments user={auth.user} videoId={data.video._id} />

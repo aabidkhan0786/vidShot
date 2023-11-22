@@ -19,7 +19,9 @@ export const getVideo = (userId) => async (dispatch) => {
 
 export const displayVideos = (type) => async (dispatch) => {
     try {
+        console.log(type);
         const { data } = await Api.displayVideos(type)
+        console.log({data});
         dispatch({ type: "SAVE_VIDEO", data })
     } catch (error) {
         console.log(error);

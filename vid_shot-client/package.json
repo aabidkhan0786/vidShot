@@ -43,6 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://vid-shot-server.vercel.app/aak"
+  }
 }
